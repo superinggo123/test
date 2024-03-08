@@ -5,11 +5,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Controllers\TestController;
+
 
 class test extends Model
 {
     use HasFactory;
 
-//    protected fillable = ['', ''];
+    protected $fillable = [
+        'id', 
+        'name',
+        'lastname',
+    ];
 }

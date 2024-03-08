@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('index',[TestController::class,'index']);
+Route::get('create',[TestController::class, 'create']);
+Route::post('save', [TestController::class, 'save']);
