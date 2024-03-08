@@ -6,8 +6,8 @@
 	<title>Test</title>
 </head>
 <body>
-	<form class="" method="">
-		
-	</form>	
+
+<h1>Hello Test</h1>
+
 </body>
 </html>
