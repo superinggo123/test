@@ -15,7 +15,7 @@ class TestController extends Controller
     public function create(){
         return view('create');
     }
-    public function save(Request $request){
+    public function save(Request $request){ 
         //dd($request->all());
 
         $request ->validate ([
@@ -34,4 +34,34 @@ class TestController extends Controller
 
         return redirect()->back()->with('success','Na add na');
     }
+    public function edit($id){
+        $data = test::where('id', '=', $id)->first();
+        return view('edit', compact('data'));
+    }
+    public function update(Request $request){
+          $request ->validate ([
+            'name'=> 'required|min:5',
+            'lastname' => 'required|min:5',   
+
+        ]);
+
+        $id = $request ->id;
+        $name = $request->name;
+        $lastname = $request->lastname;
+
+        test::where('id', '=', $id)->update([
+            'name' => $name,
+            'lastname' => $lastname,
+
+        ]);
+
+        return redirect()->back()->with('success', 'Na update na');
+
+    }
+    public function delete($id){
+        test::where('id', '=', $id)->delete();
+
+        return redirect()->back()->with('success', 'Na delete na');
+    }
 }
+    

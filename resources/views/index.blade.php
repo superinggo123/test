@@ -13,6 +13,13 @@
 	<div class="container">
 		<div class="row">
 			<h2>Dashboard</h2>
+
+			@if(Session::has('success'))
+				<div class="alert alert-danger" type="alert">
+					{{Session::get('success')}}
+				</div>
+			@endif
+
 			<div class="md-3">
 		
 				<div>
@@ -38,7 +45,7 @@
 					<td>{{$i++}}</td>
 					<td>{{$test->name}}</td>
 					<td>{{$test->lastname}}</td>
-					<td><button type="submit" class="btn btn-primary" href="{{url('edit')}}">Edit</button>|<button type="submit" class="btn btn-danger" href="{{url('delete')}}">Delete</button></td>
+					<td><a href="{{url('edit/'.$test->id)}}" class="btn btn-primary">Edit</a>|<a class="btn btn-danger" href="{{url('delete/'.$test->id)}}">Delete</a></td>
 				</tr>
 				@endforeach
 				</tbody>

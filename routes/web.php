@@ -21,3 +21,6 @@ Route::get('/', function () {
 Route::get('index',[TestController::class,'index']);
 Route::get('create',[TestController::class, 'create']);
 Route::post('save', [TestController::class, 'save']);
+Route::get('edit/{id}', [TestController::class,'edit']);
+Route::post('update', [TestController::class, 'update']);
+Route::get('delete/{id}', [TestController::class, 'delete']);
